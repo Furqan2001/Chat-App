@@ -16,7 +16,7 @@ const httpLink = createHttpLink({
 
 // WebSocket link
 const wsLink = new WebSocketLink({
-  uri: process.env.HASURA_WS_URI || "",
+  uri: process.env.HASURA_WS_URI!,
   options: {
     reconnect: true,
     connectionParams: {
