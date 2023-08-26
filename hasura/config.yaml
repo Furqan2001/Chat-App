@@ -1,6 +1,6 @@
 version: 3
-endpoint: ${{HASURA_GRAPHQL_URI}}
-admin_secret: ${{HASURA_ADMIN_SECRET}}
+endpoint: "https://mutual-flea-53.hasura.app"
+admin_secret: "35gEAdwe2Hj4lGPyTAMavTfwhu6MiY4tU7xbrEVxikSdRkiWZrYn7UEQ6JKDP1Ga"
 metadata_directory: metadata
 actions:
   kind: synchronous
