@@ -4,26 +4,24 @@ import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
 import { split } from "@apollo/client";
 import { getMainDefinition } from "@apollo/client/utilities";
 import { WebSocketLink } from "@apollo/client/link/ws";
-import { hasuraAdminSecret, hasuraGraphqlUri, hasuraWsUri } from "../config";
+// import { hasuraAdminSecret, hasuraGraphqlUri, hasuraWsUri } from "../config";
 
 // HTTP link
 const httpLink = createHttpLink({
-  uri: process.env.HASURA_GRAPHQL_URI || hasuraGraphqlUri,
+  uri: process.env.HASURA_GRAPHQL_URI,
   headers: {
-    "x-hasura-admin-secret":
-      process.env.HASURA_ADMIN_SECRET || hasuraAdminSecret,
+    "x-hasura-admin-secret": process.env.HASURA_ADMIN_SECRET || "",
   },
 });
 
 // WebSocket link
 const wsLink = new WebSocketLink({
-  uri: process.env.HASURA_WS_URI || hasuraWsUri,
+  uri: process.env.HASURA_WS_URI || "",
   options: {
     reconnect: true,
     connectionParams: {
       headers: {
-        "x-hasura-admin-secret":
-          process.env.HASURA_ADMIN_SECRET || hasuraAdminSecret,
+        "x-hasura-admin-secret": process.env.HASURA_ADMIN_SECRET,
       },
     },
   },
