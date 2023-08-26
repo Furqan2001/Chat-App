@@ -1,31 +1,26 @@
-require("dotenv").config();
-
 import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
 import { split } from "@apollo/client";
 import { getMainDefinition } from "@apollo/client/utilities";
-import { WebSocketLink } from "@apollo/client/link/ws";
-// import { hasuraAdminSecret, hasuraGraphqlUri, hasuraWsUri } from "../config";
+import { WebSocketLink } from "@apollo/client/link/ws"; // Import WebSocketLink
 
 // HTTP link
 const httpLink = createHttpLink({
-  uri: process.env.NEXT_PUBLIC_HASURA_GRAPHQL_URI,
+  uri: "https://mutual-flea-53.hasura.app/v1/graphql",
   headers: {
-    "x-hasura-admin-secret": process.env.NEXT_PUBLIC_HASURA_ADMIN_SECRET || "",
-  },
-  fetchOptions: {
-    mode: "cors",
-    credentials: "include",
+    "x-hasura-admin-secret":
+      "35gEAdwe2Hj4lGPyTAMavTfwhu6MiY4tU7xbrEVxikSdRkiWZrYn7UEQ6JKDP1Ga",
   },
 });
 
 // WebSocket link
 const wsLink = new WebSocketLink({
-  uri: process.env.NEXT_PUBLIC_HASURA_WS_URI!,
+  uri: "wss://mutual-flea-53.hasura.app/v1/graphql", // Your WebSocket endpoint
   options: {
     reconnect: true,
     connectionParams: {
       headers: {
-        "x-hasura-admin-secret": process.env.NEXT_PUBLIC_HASURA_ADMIN_SECRET,
+        "x-hasura-admin-secret":
+          "35gEAdwe2Hj4lGPyTAMavTfwhu6MiY4tU7xbrEVxikSdRkiWZrYn7UEQ6JKDP1Ga",
       },
     },
   },
