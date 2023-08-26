@@ -14,6 +14,7 @@ const httpLink = createHttpLink({
   },
   fetchOptions: {
     mode: "cors",
+    credentials: "include",
   },
 });
 
