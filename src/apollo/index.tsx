@@ -8,20 +8,22 @@ import { hasuraAdminSecret, hasuraGraphqlUri, hasuraWsUri } from "../config";
 
 // HTTP link
 const httpLink = createHttpLink({
-  uri: hasuraGraphqlUri,
+  uri: process.env.HASURA_GRAPHQL_URI || hasuraGraphqlUri,
   headers: {
-    "x-hasura-admin-secret": hasuraAdminSecret,
+    "x-hasura-admin-secret":
+      process.env.HASURA_ADMIN_SECRET || hasuraAdminSecret,
   },
 });
 
 // WebSocket link
 const wsLink = new WebSocketLink({
-  uri: hasuraWsUri,
+  uri: process.env.HASURA_WS_URI || hasuraWsUri,
   options: {
     reconnect: true,
     connectionParams: {
       headers: {
-        "x-hasura-admin-secret": hasuraAdminSecret,
+        "x-hasura-admin-secret":
+          process.env.HASURA_ADMIN_SECRET || hasuraAdminSecret,
       },
     },
   },
