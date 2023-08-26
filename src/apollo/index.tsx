@@ -8,20 +8,20 @@ import { WebSocketLink } from "@apollo/client/link/ws";
 
 // HTTP link
 const httpLink = createHttpLink({
-  uri: process.env.HASURA_GRAPHQL_URI,
+  uri: process.env.NEXT_PUBLIC_HASURA_GRAPHQL_URI,
   headers: {
-    "x-hasura-admin-secret": process.env.HASURA_ADMIN_SECRET || "",
+    "x-hasura-admin-secret": process.env.NEXT_PUBLIC_HASURA_ADMIN_SECRET || "",
   },
 });
 
 // WebSocket link
 const wsLink = new WebSocketLink({
-  uri: process.env.HASURA_WS_URI!,
+  uri: process.env.NEXT_PUBLIC_HASURA_WS_URI!,
   options: {
     reconnect: true,
     connectionParams: {
       headers: {
-        "x-hasura-admin-secret": process.env.HASURA_ADMIN_SECRET,
+        "x-hasura-admin-secret": process.env.NEXT_PUBLIC_HASURA_ADMIN_SECRET,
       },
     },
   },
