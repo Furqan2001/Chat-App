@@ -1,0 +1,23 @@
+.Message {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.MessageOwner {
+    color: grey;
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+.MessageContent {
+    // padding: 12px 0;
+    border-radius: 8px;
+    border: 1px solid #aca0a0cf;
+    overflow-wrap: anywhere;
+}
+
+.MessageText {
+    padding: 12px;
+}

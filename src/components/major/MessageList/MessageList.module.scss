@@ -1,0 +1,11 @@
+.MessageList {
+    margin-bottom: 10px;
+    overflow: auto;  
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  
+}
+
+.MessageList::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}

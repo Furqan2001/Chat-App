@@ -1,0 +1,31 @@
+// components/UrlPreview.module.css
+
+.OuterAnchor {
+    text-decoration: none;
+    color: black;
+}
+
+.UrlPreview {
+    display: flex;
+    flex-direction: column;
+    background-color: #fcf8f8;
+    // margin-top: 10px;
+    border-radius: 8px;
+    // width: fit-content;
+    min-height: 100px;
+    height: auto;
+    cursor: pointer;
+  }
+  
+  .UrlPreviewImage {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+  }
+
+  .UrlPreviewTitle {
+    margin: 0;
+    padding: 12px
+  }
+  
+  
