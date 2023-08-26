@@ -13,7 +13,7 @@ const httpLink = createHttpLink({
     "x-hasura-admin-secret": process.env.NEXT_PUBLIC_HASURA_ADMIN_SECRET || "",
   },
   fetchOptions: {
-    mode: "no-cors",
+    mode: "cors",
   },
 });
 
